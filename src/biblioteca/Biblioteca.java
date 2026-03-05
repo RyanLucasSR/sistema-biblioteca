@@ -1,51 +1,54 @@
 package biblioteca;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Biblioteca {
 
     public static void main(String[] args) {
+        RegrasBiblioteca regras = new RegrasBiblioteca();
+        Menu menu = new Menu();
         Scanner entrada = new Scanner(System.in);
-        ArrayList<CadastroLivros> lista = new ArrayList<>();
 
-        int menu = 0;
+        int escolha = 0;
 
-        while(menu != 3) {
-            System.out.println("===================");
-            System.out.println("     Biblioteca    ");
-            System.out.println("===================");
-            System.out.println("[1] cadastro livro");
-            System.out.println("[2] listar livros");
-            System.out.println("[3] sair");
-            System.out.println("===================");
-            menu = entrada.nextInt();
+        while (escolha != 4) {
+            System.out.println(menu.mostarMenu());
+            escolha = entrada.nextInt();
             entrada.nextLine();
 
-            switch (menu) {
+            switch (escolha) {
                 case 1:
-                    System.out.println("Titulo: ");
+                    System.out.println("Titulo:");
                     String titulo = entrada.nextLine();
 
-                    System.out.println("Autor: ");
+                    System.out.println("Autor:");
                     String autor = entrada.nextLine();
 
-                    lista.add(new CadastroLivros(titulo, autor));
+                    regras.cadastroLivros(titulo, autor);
+
                     System.out.println("Cadastro concluido!");
                     break;
 
                 case 2:
-                    System.out.println("=======================");
+                    regras.listarLivros();
 
-                    for(CadastroLivros livros : lista) {
-                        System.out.println(livros);
-                    }
-
-                    System.out.println("=======================");
+                    System.out.println("Fim lista!");
                     break;
 
                 case 3:
-                    System.out.println("Saindo....");
+                    System.out.println("Qual livro deseja pesquisar?");
+                    String livroPesquisa = entrada.nextLine();
+                    String resultado = regras.obterLivro(livroPesquisa);
+
+                    if(resultado != null){
+                        System.out.println(resultado);
+                        System.out.println("Pesquisa encontrada!");
+
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Saindo...");
                     break;
 
                 default:
