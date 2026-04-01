@@ -1,27 +1,56 @@
 package biblioteca;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class RegrasBiblioteca {
-    ArrayList<Livros> lista = new ArrayList<>();
+public class RegrasBiblioteca{
+    List<Livro> lista = new ArrayList<>();
 
+    //add livros no list e no contrutor livros
    public void cadastroLivros(String titulo, String autor) {
-       lista.add(new Livros(titulo, autor));
+       lista.add(new Livro(titulo, autor));
+       System.out.println("Livro cadastrado com sucesso!");
    }
 
-   public void  listarLivros() {
-       for(Livros livros : lista){
-           System.out.println(livros);
+   public void listarLivros() {
+       for(Livro livro : lista){
+           System.out.println(livro);
        }
+       System.out.println("Fim lista!");
    }
 
-   public String obterLivro(String titulo) {
-       for(Livros livro : lista){
-           if(livro.titulo.equalsIgnoreCase(titulo)){
-               return livro.titulo;
+   public void pesquisarLivro(String titulo) {
+       boolean encontrado = false;
+       for(Livro livro : lista){
+           if(livro.getTitulo().equalsIgnoreCase(titulo)){
+               System.out.println(livro);
+               encontrado = true;
            }
        }
-       return null;
+       if(encontrado == true){
+           System.out.println("Pesquisa encontrada com sucesso!!");
+
+       }
+       else{
+           System.out.println("Pesquisa não encontrada!");
+       }
+   }
+
+   public void removerLivro(String titulo) {
+       Livro livroRemover = null;
+       for(Livro livro : lista){
+           if(livro.getTitulo().equalsIgnoreCase(titulo) && livro.getTitulo() != null){
+               livroRemover = livro;
+           }
+       }
+       if(livroRemover != null){
+           lista.remove(livroRemover);
+           System.out.println("Removido com sucesso!");
+
+       }
+       else{
+           System.out.println("Erro ao remover livro!");
+       }
    }
 
 }

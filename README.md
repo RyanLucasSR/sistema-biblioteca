@@ -1,60 +1,58 @@
-# 📚 Sistema de Biblioteca
+📚 Sistema de Biblioteca em Java
 
-Projeto simples de gerenciamento de livros desenvolvido em Java para praticar conceitos de Programação Orientada a Objetos.
+Sistema de gerenciamento de biblioteca desenvolvido em Java, com foco na aplicação de conceitos de Programação Orientada a Objetos e boas práticas de desenvolvimento backend.
 
----
+🚀 Funcionalidades
+📖 Cadastro de livros (título e autor)
+📋 Listagem de livros cadastrados
+🔎 Busca de livros por título
+❌ Remoção de livros
+🧾 Menu interativo via console
 
-## 🚀 Funcionalidades
+🛠️ Tecnologias Utilizadas
+Java
+IntelliJ IDEA
+Git & GitHub
 
-- 📖 Cadastrar livros (título e autor)
-- 📋 Listar todos os livros cadastrados
-- 🔎 Pesquisar livro por título
-- ❌ Encerrar o programa
-
-O sistema funciona por meio de um menu interativo no console.
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-- Java
-- IntelliJ IDEA
-- Git
-- GitHub
-
----
-
-## 🧠 Conceitos Aplicados
-
-- Criação de classes e objetos
-- Uso de `ArrayList` para armazenamento dinâmico
-- Estrutura de repetição `while`
-- Estrutura condicional `switch`
-- Sobrescrita do método `toString()`
-- Entrada de dados com `Scanner`
-- Separação de responsabilidades entre classes
-
----
-
-## 📂 Estrutura do Projeto
+🧠 Conceitos Aplicados
+Programação Orientada a Objetos (POO)
+Encapsulamento (uso de atributos privados e getters)
+Estrutura de dados com List e ArrayList
+Sobrescrita de métodos (toString)
+Separação de responsabilidades (camadas simples)
+Estruturas de repetição e decisão (while, switch)
+Manipulação de entrada de dados com Scanner
+📂 Estrutura do Projeto
 
 biblioteca/
 │
-├── Biblioteca.java → Classe principal com o menu e execução do programa
-├── Livros.java → Representa os livros cadastrados
-├── Menu.java → Responsável por exibir o menu no console
-└── RegrasBiblioteca.java → Contém as regras do sistema
+├── Biblioteca.java → Classe principal (controle do fluxo e interação com usuário)
+├── Livro.java → Modelo de dados (entidade)
+├── Menu.java → Exibição do menu no console
+└── RegrasBiblioteca.java → Regras de negócio do sistema
 
----
+📈 Evolução do Projeto
 
-## ▶️ Como Executar
+Este projeto foi desenvolvido em duas versões:
 
-1. Clone o repositório:
+🔹 Versão 1: Sistema básico com cadastro, listagem e busca
+🔹 Versão 2: Refatoração com encapsulamento, validações e novas funcionalidades (remoção de livros)
 
+Essa evolução demonstra a aplicação prática de conceitos de POO e melhoria contínua no código.
+
+▶️ Como Executar
+Clone o repositório:
 
 git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
+Abra o projeto no IntelliJ IDEA
+Execute a classe Biblioteca.java
 
-2. Abra o projeto no **IntelliJ IDEA**
+🎯 Próximos Passos
+Implementar identificador único para os livros
+Evitar duplicidade de registros
+Persistência de dados (arquivo ou banco de dados)
+Evoluir para API REST com Spring Boot
+📌 Autor
 
-3. Execute a classe **Biblioteca.java**
+Desenvolvido por Ryan Lucas
