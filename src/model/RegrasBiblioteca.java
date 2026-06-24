@@ -1,54 +1,68 @@
-package biblioteca;
+package model;
+
+import exception.PesquisaException;
+import exception.VazioException;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RegrasBiblioteca{
-    List<Livro> lista = new ArrayList<>();
+    List<LivroEmprestado> lista = new ArrayList<>();
+    List<Integer> listaId = new ArrayList<>();
+    List<Boolean> emprestimo = new ArrayList<>();
 
-    //add livros no list e no contrutor livros
+
    public void cadastroLivros(String titulo, String autor) {
-       lista.add(new Livro(titulo, autor));
+       lista.add(new LivroEmprestado(titulo, autor, seuID()));
        System.out.println("Livro cadastrado com sucesso!");
    }
 
    public void listarLivros() {
-       lista.forEach(System.out::println);
-       System.out.println("Fim lista!");
+       if (!lista.isEmpty()) {
+           lista.stream().forEach(System.out::println);
+
+       }else {
+           throw new VazioException();
+       }
    }
 
    public void pesquisarLivro(String titulo) {
-       boolean encontrado = false;
-       for(Livro livro : lista){
-           if(livro.getTitulo().equalsIgnoreCase(titulo)){
-               System.out.println(livro);
-               encontrado = true;
-           }
-       }
-       if(encontrado == true){
-           System.out.println("Pesquisa encontrada com sucesso!!");
+       if (!lista.isEmpty() && lista.contains(titulo)) {
+           lista.stream().filter(t -> t.getTitulo().equals(titulo)).forEach(System.out::println);
 
-       }
-       else{
-           System.out.println("Pesquisa não encontrada!");
+       } else {
+           throw new PesquisaException();
        }
    }
 
    public void removerLivro(String titulo) {
-       Livro livroRemover = null;
-       for(Livro livro : lista){
-           if(livro.getTitulo().equalsIgnoreCase(titulo) && livro.getTitulo() != null){
-               livroRemover = livro;
-           }
-       }
-       if(livroRemover != null){
-           lista.remove(livroRemover);
-           System.out.println("Removido com sucesso!");
+       if(!lista.isEmpty()) {
+           lista.removeIf(t -> t.getTitulo().equals(titulo));
 
+       }else {
+           throw new VazioException();
        }
-       else{
-           System.out.println("Erro ao remover livro!");
-       }
+   }
+
+   public int gerarId(){
+       int id = (int) (Math.random() * 9900) + 100;
+       return id;
+   }
+
+   public int seuID(){
+       int id = gerarId();
+       boolean continuar = true;
+
+      while(continuar){
+          if(!listaId.contains(id)){
+              listaId.add(id);
+              continuar = false;
+
+          }else {
+              id = gerarId();
+          }
+      }
+       return id;
    }
 
 }

@@ -1,13 +1,17 @@
-package biblioteca;
+package model;
+
+import java.util.Objects;
 
 public class Livro {
 
     private String titulo;
     private String autor;
+    private int idLivro;
 
-    public Livro(String titulo, String autor){
+    public Livro(String titulo, String autor, int idLivro) {
         setTitulo(titulo);
         setAutor(autor);
+        setIdLivro(idLivro);
     }
 
     public String getTitulo() {
@@ -15,7 +19,7 @@ public class Livro {
     }
 
     private void setTitulo(String titulo) {
-        if (titulo.length() >= 1) {
+        if (titulo.length() > 1) {
             this.titulo = titulo;
         }
     }
@@ -25,9 +29,32 @@ public class Livro {
     }
 
     private void setAutor(String autor) {
-        if (autor.length() >= 1) {
+        if (autor.length() > 1) {
             this.autor = autor;
         }
+    }
+
+    public int getIdLivro() {
+        return idLivro;
+    }
+
+    private void setIdLivro(int idLivro) {
+        if(idLivro > 0){
+            this.idLivro = idLivro;
+
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Livro livro = (Livro) o;
+        return idLivro == livro.idLivro && Objects.equals(titulo, livro.titulo) && Objects.equals(autor, livro.autor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(titulo, autor, idLivro);
     }
 
     @Override

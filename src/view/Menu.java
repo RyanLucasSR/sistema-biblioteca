@@ -1,4 +1,4 @@
-package biblioteca;
+package view;
 
 public class Menu {
 
