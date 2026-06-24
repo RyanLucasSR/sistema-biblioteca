@@ -3,14 +3,14 @@ package view;
 public class Menu {
 
     public String mostrarMenu(){
-        return "==================\n"
+        return "=====================\n"
                 + "      Biblioteca     "
-                + "\n==================\n" +
+                + "\n=====================\n" +
                 "[1] cadastro livro" +
                 "\n[2] listar livros" +
                 "\n[3] pesquisar titulo" +
                 "\n[4] remover livro\n" +
-                "[5] Sair" +
-                "\n==================";
+                "[0] Sair" +
+                "\n=====================";
     }
 }
