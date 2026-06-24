@@ -13,9 +13,7 @@ public class RegrasBiblioteca{
    }
 
    public void listarLivros() {
-       for(Livro livro : lista){
-           System.out.println(livro);
-       }
+       lista.forEach(System.out::println);
        System.out.println("Fim lista!");
    }
 
