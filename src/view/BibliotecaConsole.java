@@ -1,6 +1,7 @@
 package view;
 
 import controller.ControladorBiblioteca;
+import exception.VazioException;
 
 import java.util.Scanner;
 
@@ -17,7 +18,14 @@ public class BibliotecaConsole {
 
         do{
             System.out.println(menu.mostrarMenu());
-            opcao = entrada.nextInt();
+            try{
+                opcao = entrada.nextInt();
+
+            }catch (VazioException e){
+                System.out.println("Valor invalido!");
+
+            }
+            entrada.nextLine();
 
             switch(opcao){
                 case 1:
@@ -36,9 +44,9 @@ public class BibliotecaConsole {
 
                 case 3:
                     System.out.println("Digite o nome do livro: ");
-                    titulo = entrada.nextLine().trim();
+                    String tituloBusca = entrada.nextLine().trim();
 
-                    control.buscarLivro(titulo);
+                    control.buscarLivro(tituloBusca);
                     break;
 
                 case 4:

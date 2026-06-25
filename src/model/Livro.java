@@ -59,6 +59,7 @@ public class Livro {
 
     @Override
     public String toString() {
-        return "Titulo: " + getTitulo() + "\nAutor: " + getAutor() + "\n";
+        return "==============\n" +
+                "Titulo: " + getTitulo() + "\nAutor: " + getAutor() + "\n==============\n";
     }
 }

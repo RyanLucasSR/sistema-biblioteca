@@ -27,8 +27,8 @@ public class RegrasBiblioteca{
    }
 
    public void pesquisarLivro(String titulo) {
-       if (!lista.isEmpty() && lista.contains(titulo)) {
-           lista.stream().filter(t -> t.getTitulo().equals(titulo)).forEach(System.out::println);
+       if (!lista.isEmpty()) {
+           lista.stream().filter(l -> l.getTitulo().equals(titulo)).forEach(System.out::println);
 
        } else {
            throw new PesquisaException();

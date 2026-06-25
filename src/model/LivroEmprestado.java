@@ -1,7 +1,5 @@
 package model;
 
-import exception.DevolucaoException;
-
 public class LivroEmprestado extends Livro {
 
     boolean emprestado;
