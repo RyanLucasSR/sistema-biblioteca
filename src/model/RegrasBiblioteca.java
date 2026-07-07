@@ -13,7 +13,7 @@ public class RegrasBiblioteca{
 
 
    public void cadastroLivros(String titulo, String autor) {
-       lista.add(new Livro(titulo, autor, seuID()));
+       lista.add(new Livro(titulo, autor));
        System.out.println("Livro cadastrado com sucesso!");
    }
 
@@ -43,26 +43,4 @@ public class RegrasBiblioteca{
            throw new VazioException();
        }
    }
-
-   public int gerarId(){
-       int id = (int) (Math.random() * 9900) + 100;
-       return id;
-   }
-
-   public int seuID(){
-       int id = gerarId();
-       boolean continuar = true;
-
-      while(continuar){
-          if(!listaId.contains(id)){
-              listaId.add(id);
-              continuar = false;
-
-          }else {
-              id = gerarId();
-          }
-      }
-       return id;
-   }
-
 }

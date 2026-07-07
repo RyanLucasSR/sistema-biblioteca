@@ -6,13 +6,11 @@ public class Livro {
 
     private String titulo;
     private String autor;
-    private int idLivro;
     private boolean statusLivro = false;
 
-    public Livro(String titulo, String autor, int idLivro) {
+    public Livro(String titulo, String autor) {
         setTitulo(titulo);
         setAutor(autor);
-        setIdLivro(idLivro);
     }
 
     public String getTitulo() {
@@ -56,18 +54,6 @@ public class Livro {
 
     public boolean isStatusLivro() {
         return statusLivro;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Livro livro = (Livro) o;
-        return idLivro == livro.idLivro && Objects.equals(titulo, livro.titulo) && Objects.equals(autor, livro.autor);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(titulo, autor, idLivro);
     }
 
     @Override
