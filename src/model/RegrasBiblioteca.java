@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegrasBiblioteca{
-    List<LivroEmprestado> lista = new ArrayList<>();
+    List<Livro> lista = new ArrayList<>();
     List<Integer> listaId = new ArrayList<>();
     List<Boolean> emprestimo = new ArrayList<>();
 
 
    public void cadastroLivros(String titulo, String autor) {
-       lista.add(new LivroEmprestado(titulo, autor, seuID()));
+       lista.add(new Livro(titulo, autor, seuID()));
        System.out.println("Livro cadastrado com sucesso!");
    }
 
@@ -37,7 +37,7 @@ public class RegrasBiblioteca{
 
    public void removerLivro(String titulo) {
        if(!lista.isEmpty()) {
-           lista.removeIf(t -> t.getTitulo().equals(titulo));
+           lista.removeIf(t -> t.getTitulo().trim().equalsIgnoreCase(titulo));
 
        }else {
            throw new VazioException();
