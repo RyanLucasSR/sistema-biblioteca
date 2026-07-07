@@ -73,6 +73,7 @@ public class Livro {
     @Override
     public String toString() {
         return "==============\n" +
-                "Titulo: " + getTitulo() + "\nAutor: " + getAutor() + "\n==============\n";
+                "Titulo: " + getTitulo() + "\nAutor: " + getAutor() + "\nStatus: " +
+                (isStatusLivro() ? "Disponível" : "Indisponível") + "\n==============\n";
     }
 }
