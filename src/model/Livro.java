@@ -7,6 +7,7 @@ public class Livro {
     private String titulo;
     private String autor;
     private int idLivro;
+    private boolean statusLivro = false;
 
     public Livro(String titulo, String autor, int idLivro) {
         setTitulo(titulo);
@@ -43,6 +44,18 @@ public class Livro {
             this.idLivro = idLivro;
 
         }
+    }
+
+    private void setEmprestimo(){
+        this.statusLivro = true;
+    }
+
+    private void setDevolucao(){
+        this.statusLivro = false;
+    }
+
+    public boolean isStatusLivro() {
+        return statusLivro;
     }
 
     @Override
