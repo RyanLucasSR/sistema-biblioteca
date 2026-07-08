@@ -1,6 +1,7 @@
 package view;
 
 import controller.ControladorBiblioteca;
+import exception.PesquisaException;
 import exception.VazioException;
 
 import java.util.Scanner;
@@ -39,35 +40,55 @@ public class BibliotecaConsole {
                     break;
 
                 case 2:
-                    control.listarLivros();
+                    try{
+                        control.listarLivros();
+                    }catch (VazioException e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
 
                 case 3:
                     System.out.println("Digite o nome do livro: ");
                     String tituloBusca = entrada.nextLine().trim();
 
-                    control.buscarLivro(tituloBusca);
+                    try {
+                        control.buscarLivro(tituloBusca);
+                    }catch (PesquisaException e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
 
                 case 4:
                     System.out.println("Digite o nome do livro: ");
                     titulo = entrada.nextLine().trim();
 
-                    control.remover(titulo);
+                    try{
+                        control.remover(titulo);
+                    }catch (VazioException e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
 
                 case 5:
                     System.out.println("Digite o nome do livro: ");
                     titulo = entrada.nextLine().trim();
 
-                    control.EmprestarLivro(titulo);
+                    try{
+                        control.EmprestarLivro(titulo);
+                    }catch (VazioException e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
 
                 case 6:
                     System.out.println("Digite o nome do livro: ");
                     titulo = entrada.nextLine().trim();
 
-                    control.devolverLivro(titulo);
+                    try{
+                        control.devolverLivro(titulo);
+                    }catch (VazioException e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
 
                 case 0:

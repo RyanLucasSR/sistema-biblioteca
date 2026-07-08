@@ -6,6 +6,7 @@ public class Livro {
 
     private String titulo;
     private String autor;
+    private boolean statusLivro = false;
 
     public Livro(String titulo, String autor) {
         setTitulo(titulo);
@@ -32,16 +33,38 @@ public class Livro {
         }
     }
 
+    public boolean isStatusLivro() {
+        return statusLivro;
+    }
+
+    public void setEmprestimo(String titulo) {
+        if(this.getTitulo().equalsIgnoreCase(titulo)) {
+            statusLivro = true;
+        }
+    }
+
+    public void setDevolucao(String titulo) {
+        if(this.getTitulo().equalsIgnoreCase(titulo)) {
+            statusLivro = false;
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Livro livro = (Livro) o;
-        return Objects.equals(titulo, livro.titulo) && Objects.equals(autor, livro.autor);
+        return statusLivro == livro.statusLivro && Objects.equals(titulo, livro.titulo) && Objects.equals(autor, livro.autor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(titulo, autor);
+        return Objects.hash(titulo, autor, statusLivro);
     }
 
+    @Override
+    public String toString() {
+        return "==============\n" +
+                "Titulo: " + getTitulo() + "\nAutor: " + getAutor() + "\nStatus: " +
+                (isStatusLivro() ? "Indisponível" : "Disponível") + "\n==============\n";
+    }
 }
