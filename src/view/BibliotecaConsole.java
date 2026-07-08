@@ -62,6 +62,14 @@ public class BibliotecaConsole {
 
                     control.EmprestarLivro(titulo);
                     break;
+
+                case 6:
+                    System.out.println("Digite o nome do livro: ");
+                    titulo = entrada.nextLine().trim();
+
+                    control.devolverLivro(titulo);
+                    break;
+
                 case 0:
                     System.out.println("Saindo...");
                     continuar = false;

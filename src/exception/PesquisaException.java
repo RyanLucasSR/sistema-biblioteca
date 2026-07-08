@@ -2,5 +2,8 @@ package exception;
 
 public class PesquisaException extends RuntimeException{
 
-    private static final long serialVersionUID = 1;
+    @Override
+    public String getMessage() {
+        return "Livro não encontrado!";
+    }
 }

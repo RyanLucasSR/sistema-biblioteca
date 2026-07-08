@@ -1,5 +1,6 @@
 package model;
 
+import exception.DevolucaoException;
 import exception.EmprestadoException;
 import exception.PesquisaException;
 import exception.VazioException;
@@ -59,5 +60,21 @@ public class RegrasBiblioteca{
                .forEach(l -> emprestimo.add(new  Emprestimo(l.getTitulo(),l.getAutor())));
 
        emprestimo.stream().forEach(System.out::println);
+   }
+
+   public void devolucaoLivro(String titulo) {
+       boolean existeLivro = emprestimo.stream().anyMatch(l -> l.getTitulo().equals(titulo));
+
+       boolean jaEmprestado = emprestimo.stream().anyMatch(l -> l.getTitulo().equals(titulo));
+
+       if(!existeLivro){
+           throw new VazioException();
+       }
+
+       if(!jaEmprestado){
+           throw new DevolucaoException();
+       }
+
+       emprestimo.removeIf(l -> l.getTitulo().trim().equalsIgnoreCase(titulo));
    }
 }

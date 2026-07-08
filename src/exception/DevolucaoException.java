@@ -2,5 +2,10 @@ package exception;
 
 public class DevolucaoException extends RuntimeException {
 
-    private static final long serialVersionUID = 1;
+
+
+    @Override
+    public String getMessage() {
+        return "Livro disponível!";
+    }
 }

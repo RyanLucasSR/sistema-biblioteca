@@ -1,5 +1,6 @@
 package controller;
 
+import exception.DevolucaoException;
 import exception.EmprestadoException;
 import exception.PesquisaException;
 import exception.VazioException;
@@ -23,7 +24,7 @@ public class ControladorBiblioteca {
             System.out.println("Livro encontrado com sucesso!");
 
         }catch (VazioException | PesquisaException e){
-            System.out.println("Livro não encontrado!");
+            e.getMessage();
         }
     }
 
@@ -33,7 +34,7 @@ public class ControladorBiblioteca {
             System.out.println("Livro removido com sucesso!");
 
         }catch (VazioException | PesquisaException e){
-            System.out.println("Não foi removido!");
+            e.getMessage();
         }
     }
 
@@ -41,10 +42,17 @@ public class ControladorBiblioteca {
         try {
             regrasBiblioteca.emprestarLivro(titulo);
             System.out.println("Livro emprestado com sucesso!");
-        }catch (EmprestadoException e){
-            System.out.println("Livro indisponível!!(Já emprestado)");
-        }catch (VazioException e){
-            System.out.println("Livro não encontrado!");
+        }catch (EmprestadoException | VazioException e){
+            e.getMessage();
+        }
+    }
+
+    public void devolverLivro(String titulo){
+        try{
+            regrasBiblioteca.devolucaoLivro(titulo);
+            System.out.println("Livro devolvido com sucesso!");
+        }catch (VazioException | DevolucaoException e){
+            e.getMessage();
         }
     }
 }
