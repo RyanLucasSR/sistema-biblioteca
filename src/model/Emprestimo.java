@@ -10,12 +10,16 @@ public class Emprestimo extends Livro{
 
     private boolean statusLivro = false;
 
-    public void setEmprestimo(){
-        this.statusLivro = true;
+    public void setEmprestimo(String titulo){
+        if(this.getTitulo().equalsIgnoreCase(titulo)){
+            this.statusLivro = true;
+        }
     }
 
-    public void setDevolucao(){
-        this.statusLivro = false;
+    public void setDevolucao(String titulo){
+        if(this.getTitulo().equalsIgnoreCase(titulo)){
+            this.statusLivro = false;
+        }
     }
 
     public boolean isStatusLivro() {

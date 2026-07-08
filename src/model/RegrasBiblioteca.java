@@ -59,7 +59,8 @@ public class RegrasBiblioteca{
        lista.stream().filter(l -> l.getTitulo().equalsIgnoreCase(titulo))
                .forEach(l -> emprestimo.add(new  Emprestimo(l.getTitulo(),l.getAutor())));
 
-       emprestimo.stream().forEach(System.out::println);
+       lista.stream().filter(l -> l.getTitulo().equalsIgnoreCase(titulo))
+               .forEach(l -> l.setEmprestimo(titulo));
    }
 
    public void devolucaoLivro(String titulo) {
