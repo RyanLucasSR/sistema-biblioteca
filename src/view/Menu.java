@@ -6,11 +6,13 @@ public class Menu {
         return "======================\n"
                 + "      Biblioteca     "
                 + "\n======================\n" +
-                "[1] cadastro livro" +
-                "\n[2] listar livros" +
-                "\n[3] pesquisar titulo" +
-                "\n[4] remover livro\n" +
+                "[1] Cadastro livro" +
+                "\n[2] Listar livros" +
+                "\n[3] Pesquisar titulo" +
+                "\n[4] Remover livro" +
+                "\n[5] Emprestar livro" +
+                "\n[6] Devolver livro\n" +
                 "[0] Sair" +
-                "\n======================";
+                "\n======================\n";
     }
 }
