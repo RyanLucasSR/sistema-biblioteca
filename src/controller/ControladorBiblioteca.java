@@ -1,5 +1,6 @@
 package controller;
 
+import exception.EmprestadoException;
 import exception.PesquisaException;
 import exception.VazioException;
 import model.RegrasBiblioteca;
@@ -33,6 +34,17 @@ public class ControladorBiblioteca {
 
         }catch (VazioException | PesquisaException e){
             System.out.println("Não foi removido!");
+        }
+    }
+
+    public void EmprestarLivro(String titulo){
+        try {
+            regrasBiblioteca.emprestarLivro(titulo);
+            System.out.println("Livro emprestado com sucesso!");
+        }catch (EmprestadoException e){
+            System.out.println("Livro indisponível!!(Já emprestado)");
+        }catch (VazioException e){
+            System.out.println("Livro não encontrado!");
         }
     }
 }

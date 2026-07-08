@@ -56,6 +56,12 @@ public class BibliotecaConsole {
                     control.remover(titulo);
                     break;
 
+                case 5:
+                    System.out.println("Digite o nome do livro: ");
+                    titulo = entrada.nextLine().trim();
+
+                    control.EmprestarLivro(titulo);
+                    break;
                 case 0:
                     System.out.println("Saindo...");
                     continuar = false;
