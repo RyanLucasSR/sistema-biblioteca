@@ -77,5 +77,7 @@ public class RegrasBiblioteca{
        }
 
        emprestimo.removeIf(l -> l.getTitulo().trim().equalsIgnoreCase(titulo));
+       lista.stream().filter(l -> l.getTitulo().equalsIgnoreCase(titulo))
+               .forEach(l -> l.setDevolucao(titulo));
    }
 }
