@@ -23,7 +23,7 @@ public class ControladorBiblioteca {
         regrasBiblioteca.removerLivro(titulo);
     }
 
-    public void EmprestarLivro(String titulo){
+    public void emprestarLivro(String titulo){
         regrasBiblioteca.emprestarLivro(titulo);
     }
 

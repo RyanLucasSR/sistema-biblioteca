@@ -37,16 +37,12 @@ public class Livro {
         return statusLivro;
     }
 
-    public void setEmprestimo(String titulo) {
-        if(this.getTitulo().equalsIgnoreCase(titulo)) {
-            statusLivro = true;
-        }
+    public void setEmprestimo() {
+        statusLivro = true;
     }
 
-    public void setDevolucao(String titulo) {
-        if(this.getTitulo().equalsIgnoreCase(titulo)) {
-            statusLivro = false;
-        }
+    public void setDevolucao() {
+        statusLivro = false;
     }
 
     @Override

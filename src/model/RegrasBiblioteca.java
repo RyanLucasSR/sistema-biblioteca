@@ -46,7 +46,7 @@ public class RegrasBiblioteca{
        }
 
        lista.stream().filter(l -> l.getTitulo().equalsIgnoreCase(titulo))
-               .forEach(l -> l.setEmprestimo(titulo));
+               .forEach(l -> l.setEmprestimo());
    }
 
    public void devolucaoLivro(String titulo) {
@@ -57,6 +57,6 @@ public class RegrasBiblioteca{
        }
 
        lista.stream().filter(l -> l.getTitulo().equalsIgnoreCase(titulo))
-               .forEach(l -> l.setDevolucao(titulo));
+               .forEach(l -> l.setDevolucao());
    }
 }

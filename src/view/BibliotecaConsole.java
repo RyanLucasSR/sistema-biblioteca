@@ -74,7 +74,7 @@ public class BibliotecaConsole {
                     titulo = entrada.nextLine().trim();
 
                     try{
-                        control.EmprestarLivro(titulo);
+                        control.emprestarLivro(titulo);
                     }catch (VazioException e){
                         System.out.println(e.getMessage());
                     }
