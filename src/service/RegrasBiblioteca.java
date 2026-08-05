@@ -1,10 +1,12 @@
 package service;
 
 import dao.LivroDAO;
+import exception.LivroException;
 import exception.VazioException;
 import model.Livro;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RegrasBiblioteca {
@@ -75,27 +77,45 @@ public class RegrasBiblioteca {
         return livroDAO.consultarLivro(id);
     }
 
-    //TODO implementar emprestimo e devolução
-//   public void emprestarLivro(String titulo){
-//       boolean existeLivro = lista.stream().anyMatch(l -> l.getTitulo().equalsIgnoreCase(titulo));
-//
-//       if(!lista.isEmpty() && !existeLivro) {
-//           throw new VazioException();
-//       }
-//
-//       lista.stream().filter(l -> l.getTitulo().equalsIgnoreCase(titulo))
-//               .forEach(l -> l.setEmprestimo());
-//   }
-//
-//   public void devolucaoLivro(String titulo) {
-//       boolean existeLivro = lista.stream().anyMatch(l -> l.getTitulo().equalsIgnoreCase(titulo));
-//
-//       if(!lista.isEmpty() && !existeLivro) {
-//           throw new VazioException();
-//       }
-//
-//       lista.stream().filter(l -> l.getTitulo().equalsIgnoreCase(titulo))
-//               .forEach(l -> l.setDevolucao());
-//   }
+//    TODO implementar emprestimo e devolução
+   public void emprestarLivro(String titulo) throws SQLException {
 
+        List<Livro> livro = new ArrayList<>();
+
+        if(titulo == null || titulo.isBlank()) {
+            throw new VazioException();
+        }
+
+        livro = livroDAO.pesquisarLivros(titulo);
+
+        if(livro == null || livro.isEmpty()){
+            throw new VazioException();
+        }
+
+        if(livro.get(livro.size()-1).isStatusLivro()){
+           livroDAO.emprestarLivro(titulo);
+       }else{
+            throw new LivroException("Livro indisponivel!");
+        }
+   }
+   public void devolverLivro(String titulo) throws SQLException {
+
+        List<Livro> livro = new ArrayList<>();
+
+        if(titulo == null || titulo.isBlank()) {
+            throw new VazioException();
+        }
+
+        livro = livroDAO.pesquisarLivros(titulo);
+
+        if(livro == null || livro.isEmpty()){
+            throw new VazioException();
+        }
+
+        if(!livro.get(livro.size()-1).isStatusLivro()){
+           livroDAO.devolverLivro(titulo);
+       }else{
+            throw new LivroException("Livro indisponivel!");
+        }
+   }
 }

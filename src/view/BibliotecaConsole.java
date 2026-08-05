@@ -1,5 +1,6 @@
 package view;
 
+import exception.LivroException;
 import exception.VazioException;
 import service.RegrasBiblioteca;
 
@@ -113,6 +114,33 @@ public class BibliotecaConsole {
                     }
 
                     System.out.println("Livro atualizado com sucesso!");
+                    break;
+
+                case 6:
+                    System.out.println("Digite o titulo: ");
+                    String novoTitulo = entrada.nextLine().trim();
+
+                    try{
+                        regras.emprestarLivro(novoTitulo);
+
+                        System.out.println("Livro emprestado com sucesso!");
+                    }catch (VazioException | SQLException | LivroException e){
+                        System.out.println(e.getMessage());
+                    }
+
+                    break;
+
+                case 7:
+                    System.out.println("Digite o titulo: ");
+                    String tituloDevolver = entrada.nextLine().trim();
+
+                    try{
+                        regras.devolverLivro(tituloDevolver);
+                        System.out.println("Livro devolvido com sucesso!");
+                    }catch (VazioException | SQLException | LivroException e){
+                        System.out.println(e.getMessage());
+                    }
+
                     break;
 
                 case 0:

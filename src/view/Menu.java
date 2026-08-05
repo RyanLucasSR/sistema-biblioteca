@@ -11,8 +11,9 @@ public class Menu {
                 "\n[3] Pesquisar titulo" +
                 "\n[4] Remover livro" +
                 "\n[5] Atualizar livro" +
-                "\n" +
-                "[0] Sair" +
+                "\n[6] Emprestar livro" +
+                "\n[7] Devolver livro" +
+                "\n[0] Sair" +
                 "\n======================\n";
     }
 }

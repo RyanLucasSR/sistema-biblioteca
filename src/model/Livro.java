@@ -82,6 +82,6 @@ public class Livro {
     public String toString() {
         return "==============\n" +
                 "Titulo: " + getTitulo() + "\nAutor: " + getAutor() + "\nStatus: " +
-                (isStatusLivro() ? "Indisponível" : "Disponível") + "\n==============\n";
+                (isStatusLivro() ? "Disponível" : "Indisponível") + "\n==============\n";
     }
 }
