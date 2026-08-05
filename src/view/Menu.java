@@ -10,8 +10,8 @@ public class Menu {
                 "\n[2] Listar livros" +
                 "\n[3] Pesquisar titulo" +
                 "\n[4] Remover livro" +
-                "\n[5] Emprestar livro" +
-                "\n[6] Devolver livro\n" +
+                "\n[5] Atualizar livro" +
+                "\n" +
                 "[0] Sair" +
                 "\n======================\n";
     }

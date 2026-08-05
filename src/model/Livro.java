@@ -6,11 +6,20 @@ public class Livro {
 
     private String titulo;
     private String autor;
+    private int id;
     private boolean statusLivro = false;
 
-    public Livro(String titulo, String autor) {
+    public Livro(int id, String titulo, String autor, boolean statusLivro) {
         setTitulo(titulo);
         setAutor(autor);
+        setId(id);
+        setStatusLivro(statusLivro);
+    }
+
+    public Livro(String titulo, String autor, boolean statusLivro) {
+        setTitulo(titulo);
+        setAutor(autor);
+        setStatusLivro(statusLivro);
     }
 
     public String getTitulo() {
@@ -35,6 +44,18 @@ public class Livro {
 
     public boolean isStatusLivro() {
         return statusLivro;
+    }
+
+    public void setStatusLivro(boolean statusLivro) {
+        this.statusLivro = statusLivro;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setEmprestimo() {
