@@ -1,58 +1,98 @@
-📚 Sistema de Biblioteca em Java
+# 📚 Sistema de Biblioteca em Java
 
-Sistema de gerenciamento de biblioteca desenvolvido em Java, com foco na aplicação de conceitos de Programação Orientada a Objetos e boas práticas de desenvolvimento backend.
+Sistema de gerenciamento de biblioteca desenvolvido em **Java**, utilizando 
+**JDBC** e **MySQL**, com foco na prática de Programação Orientada a Objetos, 
+SQL e arquitetura em camadas.
 
-🚀 Funcionalidades
-📖 Cadastro de livros (título e autor)
-📋 Listagem de livros cadastrados
-🔎 Busca de livros por título
-❌ Remoção de livros
-🧾 Menu interativo via console
+## 🚀 Funcionalidades
 
-🛠️ Tecnologias Utilizadas
-Java
-IntelliJ IDEA
-Git & GitHub
+- 📖 Cadastro de livros
+- 📋 Listagem de livros
+- 🔎 Pesquisa de livros por título
+- 🔍 Consulta de livro por ID
+- ✏️ Atualização de livros
+- ❌ Remoção de livros
+- 📚 Empréstimo de livros
+- 🔄 Devolução de livros
+- 🧾 Menu interativo via console
 
-🧠 Conceitos Aplicados
-Programação Orientada a Objetos (POO)
-Encapsulamento (uso de atributos privados e getters)
-Estrutura de dados com List e ArrayList
-Sobrescrita de métodos (toString)
-Separação de responsabilidades (camadas simples)
-Estruturas de repetição e decisão (while, switch)
-Manipulação de entrada de dados com Scanner
-📂 Estrutura do Projeto
+## 🛠️ Tecnologias Utilizadas
 
-biblioteca/
+- Java
+- JDBC
+- MySQL
+- MySQL Workbench
+- IntelliJ IDEA
+- Git & GitHub
+
+## 🧠 Conceitos Aplicados
+
+- Programação Orientada a Objetos (POO)
+- JDBC
+- SQL (CRUD)
+- PreparedStatement
+- Tratamento de exceções
+- Arquitetura em camadas (DAO, Service, Model e View)
+- Encapsulamento
+- Collections (List e ArrayList)
+- Separação de responsabilidades
+
+## 📂 Estrutura do Projeto
+
+```text
+src/
 │
-├── Biblioteca.java → Classe principal (controle do fluxo e interação com usuário)
-├── Livro.java → Modelo de dados (entidade)
-├── Menu.java → Exibição do menu no console
-└── RegrasBiblioteca.java → Regras de negócio do sistema
+├── dao/
+│   ├── FabricaDeConexao.java
+│   └── LivroDAO.java
+│
+├── exception/
+│   ├── LivroException.java
+│   └── VazioException.java
+│
+├── model/
+│   └── Livro.java
+│
+├── service/
+│   └── RegrasBiblioteca.java
+│
+├── view/
+│   ├── BibliotecaConsole.java
+│   └── Menu.java
+│
+├── Aplicacao.java
+├── biblioteca.properties.example
+```
 
-📈 Evolução do Projeto
+## ▶️ Como Executar
 
-Este projeto foi desenvolvido em duas versões:
+1. Clone o repositório:
 
-🔹 Versão 1: Sistema básico com cadastro, listagem e busca
-🔹 Versão 2: Refatoração com encapsulamento, validações e novas funcionalidades (remoção de livros)
+```bash
+git clone https://github.com/RyanLucasSR/sistema-biblioteca.git
+```
 
-Essa evolução demonstra a aplicação prática de conceitos de POO e melhoria contínua no código.
+2. Configure um banco MySQL.
 
-▶️ Como Executar
-Clone o repositório:
+3. Crie um arquivo `biblioteca.properties` baseado no arquivo `biblioteca.properties.example`.
 
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+4. Abra o projeto no IntelliJ IDEA.
 
-Abra o projeto no IntelliJ IDEA
-Execute a classe Biblioteca.java
+5. Adicione o MySQL Connector/J ao projeto.
 
-🎯 Próximos Passos
-Implementar identificador único para os livros
-Evitar duplicidade de registros
-Persistência de dados (arquivo ou banco de dados)
-Evoluir para API REST com Spring Boot
-📌 Autor
+6. Execute a classe `Aplicacao.java`.
 
-Desenvolvido por Ryan Lucas
+## 🎯 Objetivo
+
+Este projeto foi desenvolvido com o objetivo de praticar:
+
+- Java
+- JDBC
+- SQL
+- MySQL
+- Arquitetura em camadas
+- Manipulação de banco de dados utilizando DAO
+
+## 📌 Autor
+
+Desenvolvido por **Ryan Lucas**
