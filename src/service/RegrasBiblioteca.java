@@ -30,7 +30,7 @@ public class RegrasBiblioteca {
 
     public List<Livro> pesquisarLivro(String titulo) throws SQLException {
 
-        if(titulo == null | titulo.isBlank()) {
+        if(titulo == null || titulo.isBlank()) {
             throw new VazioException();
         }
 
@@ -40,7 +40,7 @@ public class RegrasBiblioteca {
     //TODO refaorar com usuario adicionando sim para atualizar
     public void atualizarLivro(int id, String titulo, String autor, boolean statusLivro) throws SQLException {
 
-        if(titulo == null || titulo.isBlank() || autor == null || autor.isBlank() | id <= 0) {
+        if(titulo == null || titulo.isBlank() || autor == null || autor.isBlank() || id <= 0) {
             throw new VazioException();
         }
 
@@ -78,44 +78,44 @@ public class RegrasBiblioteca {
     }
 
 //    TODO implementar emprestimo e devolução
-   public void emprestarLivro(String titulo) throws SQLException {
+   public void emprestarLivro(int id) throws SQLException {
 
-        List<Livro> livro = new ArrayList<>();
+        Livro livro;
 
-        if(titulo == null || titulo.isBlank()) {
+        if(id < 0) {
             throw new VazioException();
         }
 
-        livro = livroDAO.pesquisarLivros(titulo);
+        livro = livroDAO.consultarLivro(id);
 
-        if(livro == null || livro.isEmpty()){
+        if(livro == null){
             throw new VazioException();
         }
 
-        if(livro.get(livro.size()-1).isStatusLivro()){
-           livroDAO.emprestarLivro(titulo);
+        if(livro.isStatusLivro()){
+           livroDAO.emprestarLivro(id);
        }else{
             throw new LivroException("Livro indisponivel!");
         }
    }
-   public void devolverLivro(String titulo) throws SQLException {
+   public void devolverLivro(int id) throws SQLException {
 
-        List<Livro> livro = new ArrayList<>();
+        Livro livro;
 
-        if(titulo == null || titulo.isBlank()) {
+        if(id < 0) {
             throw new VazioException();
         }
 
-        livro = livroDAO.pesquisarLivros(titulo);
+        livro = livroDAO.consultarLivro(id);
 
-        if(livro == null || livro.isEmpty()){
+        if(livro == null){
             throw new VazioException();
         }
 
-        if(!livro.get(livro.size()-1).isStatusLivro()){
-           livroDAO.devolverLivro(titulo);
+        if(!livro.isStatusLivro()){
+           livroDAO.devolverLivro(id);
        }else{
-            throw new LivroException("Livro indisponivel!");
+            throw new LivroException("O livro já está disponível!");
         }
    }
 }

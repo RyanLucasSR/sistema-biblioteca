@@ -98,6 +98,7 @@ public class LivroDAO {
         }
 
         stmt.close();
+        rs.close();
         return livroAchado;
     }
 
@@ -131,13 +132,13 @@ public class LivroDAO {
 
     //TODO implementar emprestimo e devolução
 
-    public void emprestarLivro(String titulo) throws SQLException {
+    public void emprestarLivro(int id) throws SQLException {
 
-        String update = "UPDATE biblioteca SET disponivel = ? WHERE titulo = ?";
+        String update = "UPDATE biblioteca SET disponivel = ? WHERE id = ?";
 
         PreparedStatement stmt = conexao.prepareStatement(update);
         stmt.setBoolean(1, false);
-        stmt.setString(2, titulo);
+        stmt.setInt(2, id);
 
         if (stmt.executeUpdate() == 0) {
             throw new LivroException("Livro não emprestado!");
@@ -145,13 +146,13 @@ public class LivroDAO {
 
         stmt.close();
     }
-    public void devolverLivro(String titulo) throws SQLException {
+    public void devolverLivro(int id) throws SQLException {
 
-        String update = "UPDATE biblioteca SET disponivel = ? WHERE titulo = ?";
+        String update = "UPDATE biblioteca SET disponivel = ? WHERE id = ?";
 
         PreparedStatement stmt = conexao.prepareStatement(update);
         stmt.setBoolean(1, true);
-        stmt.setString(2, titulo);
+        stmt.setInt(2, id);
 
         if (stmt.executeUpdate() == 0) {
             throw new LivroException("Livro não devolvido!");

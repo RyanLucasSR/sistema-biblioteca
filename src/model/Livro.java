@@ -59,11 +59,11 @@ public class Livro {
     }
 
     public void setEmprestimo() {
-        statusLivro = true;
+        statusLivro = false;
     }
 
     public void setDevolucao() {
-        statusLivro = false;
+        statusLivro = true;
     }
 
     @Override

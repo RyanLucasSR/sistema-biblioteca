@@ -39,11 +39,11 @@ public class BibliotecaConsole {
 
                     try {
                         regras.cadastroLivros(titulo, autor, true);
+                        System.out.println("Livro cadastrado com sucesso!");
                     } catch (SQLException e) {
                         System.out.println(e.getMessage());
                     }
 
-                    System.out.println("Livro cadastrado com sucesso!");
                     break;
 
                 case 2:
@@ -61,11 +61,11 @@ public class BibliotecaConsole {
 
                     try {
                         regras.pesquisarLivro(tituloBusca).forEach(System.out::println);
+                        System.out.println("Livro buscado com sucesso!");
                     }catch (SQLException e){
                         System.out.println(e.getMessage());
                     }
 
-                    System.out.println("Livro buscado com sucesso!");
                     break;
 
                 case 4:
@@ -74,11 +74,11 @@ public class BibliotecaConsole {
 
                     try{
                         regras.removerLivro(id);
+                        System.out.println("Livro removido com sucesso!");
                     }catch (VazioException | SQLException e){
                         System.out.println(e.getMessage());
                     }
 
-                    System.out.println("Livro removido com sucesso!");
                     break;
 
                 case 5:
@@ -87,6 +87,7 @@ public class BibliotecaConsole {
 
                     try{
                         System.out.println(regras.consultarLivro(id));
+                        System.out.println("Livro consultado com sucesso!");
                     }catch (SQLException | VazioException e){
                         System.out.println(e.getMessage());
                     }
@@ -95,7 +96,7 @@ public class BibliotecaConsole {
                     System.out.println("Dejesa atualizar? ");
                     String atualizar = entrada.nextLine().trim();
 
-                    if(atualizar.equalsIgnoreCase("S") |
+                    if(atualizar.equalsIgnoreCase("S") ||
                             atualizar.equalsIgnoreCase("sim")){
 
                         System.out.println("Digite o nome do livro: ");
@@ -106,6 +107,7 @@ public class BibliotecaConsole {
 
                         try {
                             regras.atualizarLivro(id, novoNome, novoAutor, true);
+                            System.out.println("Livro atualizado com sucesso!");
                         }catch (VazioException | SQLException e){
                             System.out.println(e.getMessage());
                         }
@@ -113,16 +115,14 @@ public class BibliotecaConsole {
                         break;
                     }
 
-                    System.out.println("Livro atualizado com sucesso!");
                     break;
 
                 case 6:
-                    System.out.println("Digite o titulo: ");
-                    String novoTitulo = entrada.nextLine().trim();
+                    System.out.println("Digite o id: ");
+                    int idEmprestimo = entrada.nextInt();
 
                     try{
-                        regras.emprestarLivro(novoTitulo);
-
+                        regras.emprestarLivro(idEmprestimo);
                         System.out.println("Livro emprestado com sucesso!");
                     }catch (VazioException | SQLException | LivroException e){
                         System.out.println(e.getMessage());
@@ -131,11 +131,11 @@ public class BibliotecaConsole {
                     break;
 
                 case 7:
-                    System.out.println("Digite o titulo: ");
-                    String tituloDevolver = entrada.nextLine().trim();
+                    System.out.println("Digite o id: ");
+                        int idDevolucao = entrada.nextInt();
 
                     try{
-                        regras.devolverLivro(tituloDevolver);
+                        regras.devolverLivro(idDevolucao);
                         System.out.println("Livro devolvido com sucesso!");
                     }catch (VazioException | SQLException | LivroException e){
                         System.out.println(e.getMessage());
